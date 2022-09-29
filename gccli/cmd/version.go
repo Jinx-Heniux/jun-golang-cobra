@@ -2,6 +2,9 @@
 Copyright © 2022 jinx-heniux
 
 */
+
+// 视频 Golang+Cobra打造简单易用的命令行工具
+
 package cmd
 
 import (
@@ -15,6 +18,7 @@ var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "short version information",
 	Long:  `long and longer version information`,
+
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("v0.0.1")
 
@@ -39,5 +43,6 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// versionCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+
 	versionCmd.Flags().StringP("author", "a", "jinx heniux", "author of this argument")
 }

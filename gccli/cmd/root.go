@@ -12,9 +12,10 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "jun-go-cobra",
-	Short: "short gccli information",
-	Long:  `long and longer gccli information`,
+
+	Use:   "gccli", // 设置根命令，例如，Use: "app"
+	Short: "short description",
+	Long:  `long description`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -38,5 +39,8 @@ func init() {
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
+
+	// 视频 Golang+Cobra打造简单易用的命令行工具
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+
 }
