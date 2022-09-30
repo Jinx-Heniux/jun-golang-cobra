@@ -21,8 +21,25 @@ var echoCmd = &cobra.Command{
 	Long: `echo is for echoing anything back.
 	Echo works a lot like print, except it has a child command.`,
 	Args: cobra.MinimumNArgs(1),
+
+	PersistentPreRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside echoCmd PersistentPreRun with args: %v\n", args)
+	},
+
+	PreRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside echoCmd PreRun with args: %v\n", args)
+	},
+
 	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside echoCmd Run with args: %v\n", args)
 		fmt.Println("Print: " + strings.Join(args, " "))
+	},
+
+	PostRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside echoCmd PostRun with args: %v\n", args)
+	},
+	PersistentPostRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside echoCmd PersistentPostRun with args: %v\n", args)
 	},
 }
 

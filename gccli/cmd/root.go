@@ -14,8 +14,8 @@ import (
 var rootCmd = &cobra.Command{
 
 	Use:   "gccli", // 设置根命令，例如，Use: "app"
-	Short: "short description",
-	Long:  `long description`,
+	Short: "gccli is the root command",
+	Long:  `gccli is the root command`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },

@@ -23,10 +23,30 @@ var timesCmd = &cobra.Command{
 	Long: `echo things multiple times back to the user y providing
 	a count and a string.`,
 	Args: cobra.MinimumNArgs(1),
+
+	// 如果子命令中没有PersistentPreRun，将会调用父命令中的PersistentPreRun
+	PersistentPreRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside timesCmd PersistentPreRun with args: %v\n", args)
+	},
+
+	PreRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside timesCmd PreRun with args: %v\n", args)
+	},
+
 	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside timesCmd Run with args: %v\n", args)
 		for i := 0; i < echoTimes; i++ {
 			fmt.Println("Echo: " + strings.Join(args, " "))
 		}
+	},
+
+	PostRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside timesCmd PostRun with args: %v\n", args)
+	},
+
+	// 如果子命令中没有PersistentPreRun，将会调用父命令中的PersistentPreRun
+	PersistentPostRun: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("Inside timesCmd PersistentPostRun with args: %v\n", args)
 	},
 }
 
